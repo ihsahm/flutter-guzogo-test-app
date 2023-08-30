@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project/auth/login.dart';
 import 'package:flutter_project/components/navbar.dart';
 import 'package:flutter_project/views/homepage.dart';
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const Scaffold(
-        body: NavBar(),
+        body: LoginPage(),
       ),
     );
   }
