@@ -30,7 +30,6 @@ class _LoginPageState extends State<LoginPage> {
                 "Email",
                 style: TextStyle(fontSize: 14, color: Colors.blueGrey),
               ),
-              const SizedBox(height: 15),
               TextFormField(
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
@@ -47,7 +46,6 @@ class _LoginPageState extends State<LoginPage> {
                 "Enter Password",
                 style: TextStyle(fontSize: 14, color: Colors.blueGrey),
               ),
-              const SizedBox(height: 15),
               TextFormField(
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
@@ -128,7 +126,7 @@ class _LoginPageState extends State<LoginPage> {
                 borderRadius: BorderRadius.circular(5)),
           ),
           child: const Text(
-            "Login",
+            "LOGIN",
             style: TextStyle(
               color: Colors.white,
               fontSize: 18,
