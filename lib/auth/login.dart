@@ -1,4 +1,6 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_project/auth/signup.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -17,7 +19,8 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 150),
+              logo(),
+              const SizedBox(height: 60),
               const Text(
                 "SIGN IN",
                 style: TextStyle(fontSize: 30),
@@ -41,7 +44,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               const SizedBox(height: 15),
               const Text(
-                "Password",
+                "Enter Password",
                 style: TextStyle(fontSize: 14, color: Colors.blueGrey),
               ),
               const SizedBox(height: 15),
@@ -68,10 +71,43 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               const SizedBox(height: 15),
-              loginButton()
+              loginButton(),
+              const SizedBox(height: 15),
+              Align(
+                alignment: Alignment.center,
+                child: RichText(
+                    text: TextSpan(children: <TextSpan>[
+                  const TextSpan(
+                      text: "Don't have an account? ",
+                      style: TextStyle(
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.w300,
+                          color: Colors.black)),
+                  TextSpan(
+                      text: "Register",
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () => Navigator.push(context,
+                            MaterialPageRoute(builder: (c) => const SignUp())),
+                      style: const TextStyle(
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black)),
+                ])),
+              ),
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Widget logo() {
+    return Padding(
+      padding: const EdgeInsets.only(top: 28.0),
+      child: Container(
+        width: 100,
+        height: 100,
+        child: Image.asset("images/logo.jpg"),
       ),
     );
   }
