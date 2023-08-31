@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_project/auth/signup.dart';
+import 'package:flutter_project/components/navbar.dart';
 import 'package:flutter_project/views/homepage.dart';
 
 class LoginPage extends StatefulWidget {
@@ -118,7 +119,7 @@ class _LoginPageState extends State<LoginPage> {
       child: ElevatedButton(
           onPressed: () {
             Navigator.push(
-                context, MaterialPageRoute(builder: (c) => const HomePage()));
+                context, MaterialPageRoute(builder: (c) => const NavBar()));
           },
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.black,
