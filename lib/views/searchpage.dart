@@ -18,59 +18,55 @@ class _SearchPageState extends State<SearchPage> {
   }
 
   Widget searchBar() {
-    return CustomScrollView(
-      shrinkWrap: true,
-      scrollDirection: Axis.vertical,
-      slivers: [
-        SliverAppBar(
-          automaticallyImplyLeading: false,
-          floating: true,
-          pinned: true,
-          snap: false,
-          centerTitle: false,
-          title: const Text('Select Airport'),
-          actions: [
-            TextButton(
-              child: const Text("Canccel"),
-              onPressed: () {},
-            ),
-          ],
-          bottom: AppBar(
-            automaticallyImplyLeading: false,
-            title: Container(
-              width: double.infinity,
-              height: 60,
-              color: Colors.grey[200],
-              child: Center(
-                child: TextField(
-                  decoration: InputDecoration(
-                      hintText: 'Search',
-                      prefixIcon: const Icon(Icons.search),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20))),
-                ),
-              ),
-            ),
+    return Container(
+      margin: const EdgeInsets.only(top: 25, left: 25, right: 25),
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 28.0),
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    "Select Airport",
+                    style: TextStyle(fontSize: 20),
+                  ),
+                  TextButton(
+                    child: const Text(
+                      "Cancel",
+                      style: TextStyle(fontSize: 16),
+                    ),
+                    onPressed: () {},
+                  )
+                ]),
           ),
-        ),
-        // Other Sliver Widgets
-        SliverList(
-          delegate: SliverChildListDelegate([
-            const SizedBox(
-              height: 400,
-              child: Center(
-                child: Text(
-                  'This is an awesome shopping platform',
+          Padding(
+            padding: const EdgeInsets.only(top: 18.0),
+            child: Row(
+              children: [
+                Flexible(
+                  flex: 1,
+                  child: TextField(
+                    decoration: InputDecoration(
+                        fillColor: Colors.grey[200],
+                        filled: true,
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide.none),
+                        hintText: 'Search',
+                        hintStyle:
+                            const TextStyle(color: Colors.grey, fontSize: 18),
+                        prefixIcon: Container(
+                          padding: const EdgeInsets.all(15),
+                          child: const Icon(Icons.search),
+                        )),
+                  ),
                 ),
-              ),
+              ],
             ),
-            Container(
-              height: 1000,
-              color: Colors.pink,
-            ),
-          ]),
-        ),
-      ],
+          )
+        ],
+      ),
     );
   }
 }
