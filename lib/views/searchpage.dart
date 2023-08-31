@@ -12,7 +12,18 @@ class _SearchPageState extends State<SearchPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        children: [searchBar()],
+        children: [
+          searchBar(),
+          const SizedBox(
+            height: 10,
+          ),
+          const Divider(
+            endIndent: 5,
+            indent: 5,
+            thickness: 1,
+          ),
+          searchList()
+        ],
       ),
     );
   }
@@ -36,7 +47,9 @@ class _SearchPageState extends State<SearchPage> {
                       "Cancel",
                       style: TextStyle(fontSize: 16),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                   )
                 ]),
           ),
@@ -67,6 +80,37 @@ class _SearchPageState extends State<SearchPage> {
           )
         ],
       ),
+    );
+  }
+
+  Widget searchList() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Padding(
+          padding: EdgeInsets.only(left: 18.0),
+          child: Text(
+            "Direct Airports",
+            style: TextStyle(fontSize: 16),
+          ),
+        ),
+        ListView.separated(
+            shrinkWrap: true,
+            scrollDirection: Axis.vertical,
+            separatorBuilder: (context, index) => const Divider(
+                  endIndent: 5,
+                  indent: 5,
+                  thickness: 1,
+                ),
+            itemCount: 6,
+            itemBuilder: (context, index) => const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: ListTile(
+                    leading: Icon(Icons.airplanemode_active),
+                    title: Text("Abidjan, Port Bouet Airport (ABJ)"),
+                  ),
+                ))
+      ],
     );
   }
 }

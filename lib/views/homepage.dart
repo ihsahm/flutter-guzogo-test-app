@@ -31,6 +31,10 @@ class _HomePageState extends State<HomePage> {
         children: [
           topStack(),
           bottomStack(),
+          const Divider(
+            thickness: 1,
+            color: Colors.grey,
+          ),
           bottomButton(),
         ],
       ),
@@ -209,10 +213,8 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ],
               ),
-              const Divider(
-                thickness: 1,
-                height: 2,
-                color: Colors.grey,
+              const SizedBox(
+                height: 10,
               ),
               const Text(
                 "Cabin Class",
@@ -255,6 +257,9 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                 ],
+              ),
+              const SizedBox(
+                height: 10,
               ),
               const Text(
                 "Passengers",
