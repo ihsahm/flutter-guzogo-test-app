@@ -12,4 +12,16 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return const Scaffold();
   }
+
+  Widget topStack() {
+    return Stack(
+      children: [
+        Container(
+          height: 400,
+          width: double.infinity,
+          child: Image.asset("images/guzo.jpg"),
+        )
+      ],
+    );
+  }
 }

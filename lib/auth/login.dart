@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_project/auth/signup.dart';
+import 'package:flutter_project/views/homepage.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -116,7 +117,8 @@ class _LoginPageState extends State<LoginPage> {
       width: double.infinity,
       child: ElevatedButton(
           onPressed: () {
-            //Navigator.push(context, MaterialPageRoute(builder: (c)=> CarInfoScreen()));
+            Navigator.push(
+                context, MaterialPageRoute(builder: (c) => const HomePage()));
           },
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.black,
