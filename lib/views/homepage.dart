@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project/views/searchpage.dart';
 import 'package:fluttericon/entypo_icons.dart';
 import 'package:fluttericon/linecons_icons.dart';
 
@@ -14,6 +15,12 @@ class _HomePageState extends State<HomePage> {
   void incrementPassenger() {
     setState(() {
       _passenger++;
+    });
+  }
+
+  void decrementPassenger() {
+    setState(() {
+      _passenger--;
     });
   }
 
@@ -306,7 +313,7 @@ class _HomePageState extends State<HomePage> {
                                     children: [
                                       IconButton(
                                         icon: const Icon(Entypo.minus_circled),
-                                        onPressed: () {},
+                                        onPressed: decrementPassenger,
                                       ),
                                       const SizedBox(
                                         width: 10,
@@ -381,7 +388,10 @@ class _HomePageState extends State<HomePage> {
               "Search Flights",
               style: TextStyle(color: Colors.black),
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const SearchPage()));
+            },
           ),
         ),
       ),
