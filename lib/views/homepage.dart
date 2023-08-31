@@ -11,15 +11,22 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: topStack(),
+      body: Column(
+        children: [
+          topStack(),
+          bottomStack(),
+        ],
+      ),
     );
   }
 
   Widget topStack() {
+    bool isReturnActive = true;
+    bool isOneWayActive = false;
     return Stack(
       children: [
         Container(
-          height: 400,
+          height: 430,
           width: double.infinity,
           child: Image.asset(
             "images/guzo.jpg",
@@ -31,8 +38,8 @@ class _HomePageState extends State<HomePage> {
             right: 10,
             child: Container(
               decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey, width: 4),
-                  borderRadius: BorderRadius.circular(5)),
+                  border: Border.all(color: Colors.grey, width: 3),
+                  borderRadius: BorderRadius.circular(10)),
               child: IconButton(
                   onPressed: () {},
                   icon: const Icon(
@@ -43,9 +50,9 @@ class _HomePageState extends State<HomePage> {
         Positioned(
           top: 150,
           child: Padding(
-            padding: const EdgeInsets.only(left: 30.0),
+            padding: const EdgeInsets.only(left: 10.0, right: 10.0),
             child: Container(
-              width: 350,
+              width: 390,
               decoration: BoxDecoration(
                   border: Border.all(
                     color: Colors.white,
@@ -64,7 +71,9 @@ class _HomePageState extends State<HomePage> {
                         onPressed: () {},
                         child: const Text(
                           "One-Way",
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
                         ))
                   ]),
             ),
@@ -86,32 +95,39 @@ class _HomePageState extends State<HomePage> {
                             Text(
                               "From",
                               style:
-                                  TextStyle(color: Colors.white, fontSize: 18),
+                                  TextStyle(color: Colors.white, fontSize: 15),
                             ),
                             Text(
                               "ADD",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 28),
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 28,
+                                  fontWeight: FontWeight.w700),
                             ),
                             Text(
                               "Addis Ababa",
                               style:
-                                  TextStyle(color: Colors.white, fontSize: 18),
+                                  TextStyle(color: Colors.white, fontSize: 16),
                             ),
                             Text(
                               "Bole International Airport",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 12),
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w300),
                             ),
                           ],
                         ),
                       ),
-                      RawMaterialButton(
-                        onPressed: () {},
-                        shape: const CircleBorder(),
-                        elevation: 2.0,
-                        fillColor: Colors.white,
-                        child: const Icon(Icons.airplanemode_active),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 60.0),
+                        child: RawMaterialButton(
+                          onPressed: () {},
+                          shape: const CircleBorder(),
+                          elevation: 2.0,
+                          fillColor: Colors.white,
+                          child: const Icon(Icons.airplanemode_active),
+                        ),
                       ),
                       InkWell(
                         onTap: () {},
@@ -121,6 +137,9 @@ class _HomePageState extends State<HomePage> {
                               "To",
                               style:
                                   TextStyle(color: Colors.white, fontSize: 18),
+                            ),
+                            SizedBox(
+                              height: 20,
                             ),
                             Text(
                               "Select Destination",
@@ -134,6 +153,62 @@ class _HomePageState extends State<HomePage> {
               ),
             ))
       ],
+    );
+  }
+
+  Widget bottomStack() {
+    return Padding(
+      padding: const EdgeInsets.only(top: 8.0, left: 8.0),
+      child: Row(
+        children: [
+          Column(
+            children: [
+              const Text(
+                "Departure Date",
+                style: TextStyle(color: Colors.grey, fontSize: 18),
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "25",
+                    style: TextStyle(color: Colors.blue[700], fontSize: 35),
+                  ),
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  const Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Apr",
+                        style: TextStyle(color: Colors.black, fontSize: 18),
+                      ),
+                      Text(
+                        "Tuesday",
+                        style: TextStyle(color: Colors.black, fontSize: 18),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              const Divider(
+                thickness: 1,
+                height: 2,
+                color: Colors.grey,
+              ),
+              const Text(
+                "Cabin Class",
+                style: TextStyle(color: Colors.grey, fontSize: 18),
+              ),
+              const Text(
+                "Economy",
+                style: TextStyle(color: Colors.black, fontSize: 18),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
