@@ -12,19 +12,10 @@ class AuthInitial extends AuthState {}
 class AuthAuthenticated extends AuthState {
   final User user;
 
-  const AuthAuthenticated(this.user);
+  const AuthAuthenticated({required this.user});
 
   @override
   List<Object?> get props => [user];
 }
 
 class AuthUnauthenticated extends AuthState {}
-
-class AuthError extends AuthState {
-  final String errorMessage;
-
-  const AuthError(this.errorMessage);
-
-  @override
-  List<Object?> get props => [errorMessage];
-}

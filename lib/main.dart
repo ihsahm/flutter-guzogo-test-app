@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project/auth/login.dart';
-import 'package:flutter_project/components/navbar.dart';
-import 'package:flutter_project/views/homepage.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_project/cubits/login/login.dart';
 
-void main() {
-  runApp(const MyApp());
+Future<void> main() {
+  return BlocOverrides.runZoned(() async{
+runApp(const MyApp());
+  }
+  blocObserver: AppBlockObserver(),
+  )
+  
 }
 
 class MyApp extends StatelessWidget {
@@ -12,14 +16,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return AppView();
+  }
+}
+
+class AppView extends StatelessWidget {
+  const AppView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return  MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
-      ),
-      home: const Scaffold(
-        body: LoginPage(),
       ),
     );
   }

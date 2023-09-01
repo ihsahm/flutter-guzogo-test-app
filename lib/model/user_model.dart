@@ -1,3 +1,5 @@
+import 'package:equatable/equatable.dart';
+
 class User {
   const User({
     required this.email,

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project/views/searchpage.dart';
 import 'package:fluttericon/entypo_icons.dart';
-import 'package:fluttericon/linecons_icons.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -226,121 +225,118 @@ class _HomePageState extends State<HomePage> {
               ),
             ],
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                "Return Date",
-                style: TextStyle(color: Colors.grey, fontSize: 18),
-              ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "10",
-                    style: TextStyle(color: Colors.blue[700], fontSize: 35),
-                  ),
-                  const SizedBox(
-                    width: 20,
-                  ),
-                  const Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "May",
-                        style: TextStyle(color: Colors.black, fontSize: 18),
-                      ),
-                      Text(
-                        "Wednesday",
-                        style: TextStyle(color: Colors.black, fontSize: 18),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              const Text(
-                "Passengers",
-                style: TextStyle(color: Colors.grey, fontSize: 18),
-              ),
-              const SizedBox(
-                height: 10.0,
-              ),
-              InkWell(
-                onTap: () {
-                  showModalBottomSheet(
-                      context: context,
-                      builder: (context) {
-                        return Container(
-                          padding: const EdgeInsets.all(16.0),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
+          InkWell(
+            onTap: () {
+              showModalBottomSheet(
+                  context: context,
+                  builder: (context) {
+                    return Container(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
+                              const Text("Passengers",
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 18)),
                               Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
-                                  const Text("Passengers",
-                                      style: TextStyle(
-                                          color: Colors.black, fontSize: 18)),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: [
-                                      TextButton(
-                                        onPressed: () {
-                                          Navigator.pop(context);
-                                        },
-                                        child: const Text("Cancel",
-                                            style:
-                                                TextStyle(color: Colors.black)),
-                                      ),
-                                      TextButton(
-                                        onPressed: () {
-                                          Navigator.pop(context);
-                                        },
-                                        child: const Text(
-                                          "Done",
-                                          style: TextStyle(color: Colors.black),
-                                        ),
-                                      ),
-                                    ],
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    child: const Text("Cancel",
+                                        style: TextStyle(color: Colors.black)),
+                                  ),
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    child: const Text(
+                                      "Done",
+                                      style: TextStyle(color: Colors.black),
+                                    ),
                                   ),
                                 ],
                               ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  const Text("Adult"),
-                                  Row(
-                                    children: [
-                                      IconButton(
-                                        icon: const Icon(Entypo.minus_circled),
-                                        onPressed: decrementPassenger,
-                                      ),
-                                      const SizedBox(
-                                        width: 10,
-                                      ),
-                                      Text('$_passenger'),
-                                      const SizedBox(
-                                        width: 10,
-                                      ),
-                                      IconButton(
-                                        icon: const Icon(Entypo.plus_circled),
-                                        onPressed: incrementPassenger,
-                                      )
-                                    ],
-                                  ),
-                                ],
-                              )
                             ],
                           ),
-                        );
-                      });
-                },
-                child: const Row(
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Text("Adult"),
+                              Row(
+                                children: [
+                                  IconButton(
+                                    icon: const Icon(Entypo.minus_circled),
+                                    onPressed: decrementPassenger,
+                                  ),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  Text('$_passenger'),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  IconButton(
+                                    icon: const Icon(Entypo.plus_circled),
+                                    onPressed: incrementPassenger,
+                                  )
+                                ],
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    );
+                  });
+            },
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  "Return Date",
+                  style: TextStyle(color: Colors.grey, fontSize: 18),
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "10",
+                      style: TextStyle(color: Colors.blue[700], fontSize: 35),
+                    ),
+                    const SizedBox(
+                      width: 20,
+                    ),
+                    const Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "May",
+                          style: TextStyle(color: Colors.black, fontSize: 18),
+                        ),
+                        Text(
+                          "Wednesday",
+                          style: TextStyle(color: Colors.black, fontSize: 18),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                const Text(
+                  "Passengers",
+                  style: TextStyle(color: Colors.grey, fontSize: 18),
+                ),
+                const SizedBox(
+                  height: 10.0,
+                ),
+                const Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Icon(Icons.person),
@@ -366,8 +362,8 @@ class _HomePageState extends State<HomePage> {
                     Text("0")
                   ],
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ],
       ),

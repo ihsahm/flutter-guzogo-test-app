@@ -1,17 +1,16 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_project/auth/signup.dart';
-import 'package:flutter_project/components/navbar.dart';
-import 'package:flutter_project/views/homepage.dart';
+import 'package:flutter_project/cubits/login/login.dart';
+import 'package:flutter_project/cubits/otp_auth.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class SignUp extends StatefulWidget {
+  const SignUp({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<SignUp> createState() => _SignUpState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,12 +21,27 @@ class _LoginPageState extends State<LoginPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               logo(),
-              const SizedBox(height: 60),
+              const SizedBox(height: 40),
               const Text(
-                "SIGN IN",
+                "REGISTER",
                 style: TextStyle(fontSize: 30),
               ),
               const SizedBox(height: 35),
+              const Text(
+                "Full Name",
+                style: TextStyle(fontSize: 14, color: Colors.blueGrey),
+              ),
+              TextFormField(
+                decoration: InputDecoration(
+                  enabledBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(color: Colors.grey),
+                      borderRadius: BorderRadius.circular(5.0)),
+                  focusedBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey)),
+                ),
+                textInputAction: TextInputAction.next,
+              ),
+              const SizedBox(height: 15),
               const Text(
                 "Email",
                 style: TextStyle(fontSize: 14, color: Colors.blueGrey),
@@ -60,17 +74,6 @@ class _LoginPageState extends State<LoginPage> {
                 textInputAction: TextInputAction.done,
               ),
               const SizedBox(height: 30),
-              InkWell(
-                onTap: () {},
-                child: const Text(
-                  "Forgot Password?",
-                  style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black),
-                ),
-              ),
-              const SizedBox(height: 15),
               loginButton(),
               const SizedBox(height: 15),
               Align(
@@ -78,16 +81,16 @@ class _LoginPageState extends State<LoginPage> {
                 child: RichText(
                     text: TextSpan(children: <TextSpan>[
                   const TextSpan(
-                      text: "Don't have an account? ",
+                      text: "Already have an account? ",
                       style: TextStyle(
                           fontSize: 16.0,
                           fontWeight: FontWeight.w300,
                           color: Colors.black)),
                   TextSpan(
-                      text: "Register",
+                      text: "Sign In",
                       recognizer: TapGestureRecognizer()
                         ..onTap = () => Navigator.push(context,
-                            MaterialPageRoute(builder: (c) => const SignUp())),
+                            MaterialPageRoute(builder: (c) => const OTPAuth())),
                       style: const TextStyle(
                           fontSize: 16.0,
                           fontWeight: FontWeight.w500,
@@ -118,8 +121,7 @@ class _LoginPageState extends State<LoginPage> {
       width: double.infinity,
       child: ElevatedButton(
           onPressed: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (c) => const NavBar()));
+            //Navigator.push(context, MaterialPageRoute(builder: (c)=> CarInfoScreen()));
           },
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.black,
@@ -129,7 +131,7 @@ class _LoginPageState extends State<LoginPage> {
                 borderRadius: BorderRadius.circular(5)),
           ),
           child: const Text(
-            "LOGIN",
+            "REGISTER",
             style: TextStyle(
               color: Colors.white,
               fontSize: 18,
