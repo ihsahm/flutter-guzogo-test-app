@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_project/views/homepage.dart';
 
 class NavBar extends StatefulWidget {
-  static const String idScreen = "navBar";
+  static Page page() => const MaterialPage<void>(child: NavBar());
   const NavBar({Key? key}) : super(key: key);
 
   @override

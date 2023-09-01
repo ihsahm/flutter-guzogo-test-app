@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_project/views/searchpage.dart';
 import 'package:fluttericon/entypo_icons.dart';
 
+import '../bloc/auth_bloc.dart';
+
 class HomePage extends StatefulWidget {
+  static Page page() => const MaterialPage<void>(child: HomePage());
   const HomePage({super.key});
 
   @override
@@ -35,6 +39,7 @@ class _HomePageState extends State<HomePage> {
             color: Colors.grey,
           ),
           bottomButton(),
+          logoutButton(),
         ],
       ),
     );
@@ -394,6 +399,25 @@ class _HomePageState extends State<HomePage> {
                   MaterialPageRoute(builder: (context) => const SearchPage()));
             },
           ),
+        ),
+      ),
+    );
+  }
+
+  Widget logoutButton() {
+    return Align(
+      alignment: Alignment.bottomCenter,
+      child: SizedBox(
+        height: 20,
+        width: double.infinity,
+        child: TextButton(
+          child: const Text(
+            "Logout",
+            style: TextStyle(color: Colors.black),
+          ),
+          onPressed: () {
+            context.read<AuthBloc>().add(AuthLogOutRequested());
+          },
         ),
       ),
     );
