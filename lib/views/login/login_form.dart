@@ -147,10 +147,10 @@ class LoginButton extends StatelessWidget {
         buildWhen: (previous, current) => previous.status != current.status,
         builder: (context, state) {
           return state.status == LoginStatus.submitting
-              ? const CircularProgressIndicator()
+              ? const Center(child: CircularProgressIndicator())
               : ElevatedButton(
                   onPressed: () {
-                    context.read()<LoginCubit>().logInWithCredentials();
+                    context.read<LoginCubit>().logInWithCredentials();
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.black,

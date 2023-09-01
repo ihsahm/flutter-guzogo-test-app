@@ -407,18 +407,14 @@ class _HomePageState extends State<HomePage> {
   Widget logoutButton() {
     return Align(
       alignment: Alignment.bottomCenter,
-      child: SizedBox(
-        height: 20,
-        width: double.infinity,
-        child: TextButton(
-          child: const Text(
-            "Logout",
-            style: TextStyle(color: Colors.black),
-          ),
-          onPressed: () {
-            context.read<AuthBloc>().add(AuthLogOutRequested());
-          },
+      child: TextButton(
+        child: const Text(
+          "Logout",
+          style: TextStyle(color: Colors.black),
         ),
+        onPressed: () {
+          context.read<AuthBloc>().add(AuthLogOutRequested());
+        },
       ),
     );
   }

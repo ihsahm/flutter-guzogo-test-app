@@ -136,10 +136,10 @@ class LoginButton extends StatelessWidget {
         buildWhen: (previous, current) => previous.status != current.status,
         builder: (context, state) {
           return state.status == SignupStatus.submitting
-              ? const CircularProgressIndicator()
+              ? const Center(child: CircularProgressIndicator())
               : ElevatedButton(
                   onPressed: () {
-                    context.read()<SignupCubit>().singupFormSubmitted();
+                    context.read<SignupCubit>().signupdFormSubmitted();
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.black,
@@ -167,7 +167,7 @@ class Logo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 28.0),
-      child: Container(
+      child: SizedBox(
         width: 100,
         height: 100,
         child: Image.asset("images/logo.jpg"),
