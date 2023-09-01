@@ -31,6 +31,7 @@ class SignUpForm extends StatelessWidget {
                 style: TextStyle(fontSize: 14, color: Colors.blueGrey),
               ),
               TextFormField(
+                textCapitalization: TextCapitalization.words,
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
                       borderSide: const BorderSide(color: Colors.grey),
